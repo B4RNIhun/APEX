@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Vezess ikonikus versenypályákon! Fedezd fel az APEX pályanapjait, válassz helyszínt, élménycsomagot és kérj időpontot.">
+  <title>APEX Track Days — A pálya a tiéd</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navigation" aria-label="Fő navigáció">
+      <a class="wordmark" href="#kezdolap" aria-label="APEX Track Days — főoldal">APEX<span> / TRACK DAYS</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Menü megnyitása">
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-menu" id="primary-menu">
+        <a href="#elmeny">Az élmény</a>
+        <a href="#palyak">Pályák</a>
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="booking-menu">
+            Tudnivalók <span aria-hidden="true">⌄</span>
+          </button>
+          <div class="dropdown-menu" id="booking-menu">
+            <a href="#foglalas" data-close-menu>Pálya kiválasztása</a>
+            <a href="#foglalas" data-close-menu>Időpontok és elérhetőség</a>
+            <a href="#csomagok" data-close-menu>Élménycsomagok</a>
+            <a href="#kapcsolat" data-close-menu>Kapcsolat</a>
+          </div>
+        </div>
+      </div>
+      <a class="nav-contact" href="#foglalas">Időpontot keresek <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="kezdolap" aria-labelledby="hero-title">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow hero-eyebrow"><span class="live-dot"></span> VEZETÉSI ÉLMÉNYEK · PÁLYANAPOK</p>
+        <h1 id="hero-title">A pálya<br><em>a tiéd.</em></h1>
+        <p class="hero-description">Ülj volán mögé, és próbálj ki ikonikus pályákat.<br>A tempót te választod. Az élmény a tiéd.</p>
+        <a class="outline-button" href="#foglalas">Találd meg a következő napod <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-bottom">
+        <span>VEZESS A SAJÁT TEMPÓDBAN</span>
+        <span class="hero-caption">HUNGARORING · SLOVAKIA RING · RED BULL RING</span>
+        <a href="#elmeny" aria-label="Görgetés a következő szakaszhoz">Az élmény <span aria-hidden="true">↓</span></a>
+      </div>
+      <span class="hero-vertical" aria-hidden="true">APEX TRACK DAYS</span>
+    </section>
+
+    <section class="intro section-wrap" id="elmeny">
+      <div class="section-label reveal">
+        <span>01 / A VEZETÉS ÉLMÉNYE</span>
+        <span class="label-line"></span>
+        <span>NEM KELL VERSENYZŐNEK LENNED</span>
+      </div>
+      <div class="intro-grid">
+        <div class="intro-image image-frame reveal" role="img" aria-label="Sportautó egy lendületes pályanapon"></div>
+        <div class="intro-copy reveal">
+          <p class="eyebrow">A lelátóról a volán mögé</p>
+          <h2>Nem csak<br>nézed.<br><em>Vezeted.</em></h2>
+          <p class="body-copy">Egy nyílt pályanap közelebb hozza azt, amit eddig csak távolról figyeltél. Ismerd meg a kanyarokat, találd meg a saját ritmusod, és tapasztald meg, milyen érzés szabadon vezetni egy igazi versenypályán.</p>
+          <a class="text-link" href="#palyak">Nézd meg a pályákat <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="intro-note reveal">
+        <span>Első alkalom? Semmi gond. Mindenki valahol kezdi.</span>
+        <span>SAJÁT AUTÓVAL VAGY CSOMAGBAN</span>
+      </div>
+    </section>
+
+    <section class="projects section-wrap" id="palyak">
+      <div class="section-label reveal">
+        <span>02 / VÁLASZD KI A PÁLYÁT</span>
+        <span class="label-line"></span>
+        <span>ÚJ HELYSZÍNEK RENDSZERESEN</span>
+      </div>
+      <div class="projects-heading reveal">
+        <h2>Három pálya.<br><em>Más ritmus.</em></h2>
+        <p>Minden helyszín más kihívás. Válaszd ki, hol kezdenéd a következő kalandot.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <a href="#foglalas" class="project-image project-image-one" aria-label="Hungaroring pályanap részletei">
+            <span class="project-index">01 / MAGYARORSZÁG</span>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-location">MOGYORÓD · TECHNIKÁS KANYAROK</span>
+          </a>
+          <div class="project-meta">
+            <div><h3>Hungaroring</h3><p>Jó választás az első pályanapodhoz is</p></div>
+            <span>HU</span>
+          </div>
+        </article>
+        <article class="project-card project-offset reveal">
+          <a href="#foglalas" class="project-image project-image-two" aria-label="Slovakia Ring pályanap részletei">
+            <span class="project-index">02 / SZLOVÁKIA</span>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-location">ORECHOVÁ POTÔŇ · HOSSZÚ EGYENESEK</span>
+          </a>
+          <div class="project-meta">
+            <div><h3>Slovakia Ring</h3><p>Tágas pálya, sok lehetőség</p></div>
+            <span>SK</span>
+          </div>
+        </article>
+        <article class="project-card reveal">
+          <a href="#foglalas" class="project-image project-image-three" aria-label="Red Bull Ring pályanap részletei">
+            <span class="project-index">03 / AUSZTRIA</span>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-location">SPIELBERG · HEGYI KANYAROK</span>
+          </a>
+          <div class="project-meta">
+            <div><h3>Red Bull Ring</h3><p>Vezetés az Alpok különleges hátterében</p></div>
+            <span>AT</span>
+          </div>
+        </article>
+      </div>
+      <a class="text-link all-projects reveal" href="#foglalas">Pálya és időpont kiválasztása <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="manifesto" id="csomagok">
+      <div class="manifesto-image" role="img" aria-label="Sportautó a pályanap előtt"></div>
+      <div class="manifesto-content reveal">
+        <p class="eyebrow">03 / TE DÖNTESZ A TEMPÓRÓL</p>
+        <h2>Saját autó.<br><em>Saját élmény.</em></h2>
+        <p class="body-copy">Érkezz a saját autóddal, vagy érdeklődj vezetési élménycsomagjainkról. Kérhetsz első pályanapos eligazítást, több pályakört vagy személyre szabott időpontot is.</p>
+        <a class="text-link" href="#foglalas">Válassz élménycsomagot <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="contact section-wrap" id="foglalas">
+      <div class="section-label reveal">
+        <span>04 / PÁLYANAP ÉS ELÉRHETŐSÉG</span>
+        <span class="label-line"></span>
+        <span>KÉRJ IDŐPONTOT</span>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Következő kör: te jössz</p>
+          <h2>Válassz.<br><em>Vezess.</em></h2>
+          <p class="body-copy">Válaszd ki a pályát, az érdeklődési időszakot és az élmény típusát. Küldj érdeklődést, mi pedig egyeztetjük veled a következő elérhető pályanapot.</p>
+          <a class="email-link" id="kapcsolat" href="mailto:hello@apextrackdays.hu">hello@apextrackdays.hu <span aria-hidden="true">↗</span></a>
+          <p class="availability-note">Az időpontok és a csomagok eseményenként változnak. A tényleges elérhetőséget minden esetben visszaigazoljuk.</p>
+        </div>
+        <form class="contact-form reveal">
+          <label for="track">Melyik pályán vezetnél?</label>
+          <select id="track" name="track" required>
+            <option value="" selected disabled>Válassz egy pályát</option>
+            <optgroup label="Magyarország">
+              <option value="Hungaroring">Hungaroring · Mogyoród</option>
+              <option value="Pannonia-Ring">Pannonia-Ring · Ostffyasszonyfa</option>
+              <option value="Balaton Park Circuit">Balaton Park Circuit · Balatonfőkajár</option>
+              <option value="Kakucs Ring">Kakucs Ring · Kakucs</option>
+              <option value="Rabócsiring">Rabócsiring · Máriapócs</option>
+            </optgroup>
+            <optgroup label="Szomszédos országok">
+              <option value="Slovakia Ring">Slovakia Ring · Orechová Potôň</option>
+              <option value="Automotodrom Brno">Automotodrom Brno · Csehország</option>
+              <option value="Autodrom Most">Autodrom Most · Csehország</option>
+              <option value="Red Bull Ring">Red Bull Ring · Spielberg, Ausztria</option>
+              <option value="Salzburgring">Salzburgring · Ausztria</option>
+              <option value="Grobnik">Automotodrom Grobnik · Horvátország</option>
+            </optgroup>
+            <optgroup label="További európai pályák">
+              <option value="Lausitzring">Lausitzring · Németország</option>
+              <option value="Hockenheimring">Hockenheimring · Németország</option>
+              <option value="Nürburgring">Nürburgring · Németország</option>
+              <option value="Spa-Francorchamps">Spa-Francorchamps · Belgium</option>
+              <option value="Misano">Misano World Circuit · Olaszország</option>
+            </optgroup>
+          </select>
+
+          <label for="availability">Mikor lenne jó?</label>
+          <select id="availability" name="availability" required disabled>
+            <option value="" selected disabled>Először válassz pályát</option>
+          </select>
+
+          <label for="package">Milyen élmény érdekel?</label>
+          <select id="package" name="package" required>
+            <option value="" selected disabled>Válassz élménycsomagot</option>
+            <option value="Saját autós pályanap">Saját autós pályanap</option>
+            <option value="Vezetési élménycsomag">Vezetési élménycsomag</option>
+            <option value="Első pályanapos eligazítás">Első pályanapos eligazítás</option>
+            <option value="Egyéni időpont">Egyéni időpont egyeztetése</option>
+          </select>
+
+          <label for="name">Neved</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Teljes név" required>
+          <label for="email">E-mail címed</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="nev@email.com" required>
+          <button class="submit-button" type="submit">Elérhetőséget kérek <span aria-hidden="true">↗</span></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark footer-mark" href="#kezdolap">APEX<span> / TRACK DAYS</span></a>
+    <p>A pálya a tiéd.</p>
+    <span>© <span id="year"></span> APEX Track Days</span>
+    <a class="back-top" href="#kezdolap">Vissza a rajthoz ↑</a>
+  </footer>
+</body>
+</html>
