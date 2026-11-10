@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#111111">
   <meta name="description" content="Vezess ikonikus versenypályákon! Fedezd fel az APEX pályanapjait, válassz helyszínt, élménycsomagot és kérj időpontot.">
-  <title>APEX Track Days — A pálya a tiéd</title>
+  <title>KANYAR — Vezetési élmények</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,26 +16,29 @@
   <header class="site-header">
     <nav class="navigation" aria-label="Fő navigáció">
       <a class="wordmark" href="#kezdolap" aria-label="APEX Track Days — főoldal">APEX<span> / TRACK DAYS</span></a>
+      <a class="nav-contact" href="#foglalas">Időpontot keresek <span aria-hidden="true">↗</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Menü megnyitása">
         <span></span>
         <span></span>
+        <span></span>
+      </button>
+      <button class="account-toggle" type="button" aria-label="Fiók bejelentkezés és regisztráció" aria-haspopup="dialog" aria-controls="account-dialog">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="8" r="3.5"></circle>
+          <path d="M5 20c0-3.9 2.8-6 7-6s7 2.1 7 6"></path>
+          <path d="M19 5v6M16 8h6"></path>
+        </svg>
       </button>
       <div class="nav-menu" id="primary-menu">
         <a href="#elmeny">Az élmény</a>
         <a href="#palyak">Pályák</a>
-        <div class="nav-dropdown">
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="booking-menu">
-            Tudnivalók <span aria-hidden="true">⌄</span>
-          </button>
-          <div class="dropdown-menu" id="booking-menu">
-            <a href="#foglalas" data-close-menu>Pálya kiválasztása</a>
-            <a href="#foglalas" data-close-menu>Időpontok és elérhetőség</a>
-            <a href="#csomagok" data-close-menu>Élménycsomagok</a>
-            <a href="#kapcsolat" data-close-menu>Kapcsolat</a>
-          </div>
-        </div>
+        <a href="#palyanapok">Közelgő pályanapok</a>
+        <a href="#foglalas">Pálya kiválasztása</a>
+        <a href="#foglalas">Időpontok és elérhetőség</a>
+        <a href="#csomagok">Élménycsomagok</a>
+        <a href="#gyik">Gyakori kérdések</a>
+        <a href="#kapcsolat">Kapcsolat</a>
       </div>
-      <a class="nav-contact" href="#foglalas">Időpontot keresek <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
@@ -50,7 +53,6 @@
       </div>
       <div class="hero-bottom">
         <span>VEZESS A SAJÁT TEMPÓDBAN</span>
-        <span class="hero-caption">HUNGARORING · SLOVAKIA RING · RED BULL RING</span>
         <a href="#elmeny" aria-label="Görgetés a következő szakaszhoz">Az élmény <span aria-hidden="true">↓</span></a>
       </div>
       <span class="hero-vertical" aria-hidden="true">APEX TRACK DAYS</span>
@@ -84,60 +86,146 @@
         <span>ÚJ HELYSZÍNEK RENDSZERESEN</span>
       </div>
       <div class="projects-heading reveal">
-        <h2>Három pálya.<br><em>Más ritmus.</em></h2>
+        <h2>Öt pálya.<br><em>Más ritmus.</em></h2>
         <p>Minden helyszín más kihívás. Válaszd ki, hol kezdenéd a következő kalandot.</p>
       </div>
       <div class="project-grid">
         <article class="project-card reveal">
-          <a href="#foglalas" class="project-image project-image-one" aria-label="Hungaroring pályanap részletei">
-            <span class="project-index">01 / MAGYARORSZÁG</span>
-            <span class="project-arrow" aria-hidden="true">↗</span>
-            <span class="project-location">MOGYORÓD · TECHNIKÁS KANYAROK</span>
+          <a href="#foglalas" class="project-image project-image-one" data-track="Hungaroring" aria-label="Hungaroring pályanap részletei">
+            <img class="track-map" src="track-maps/hungaroring.svg" alt="A Hungaroring pályarajza" loading="lazy">
           </a>
           <div class="project-meta">
-            <div><h3>Hungaroring</h3><p>Jó választás az első pályanapodhoz is</p></div>
-            <span>HU</span>
+            <div><p class="project-country">Magyarország</p><h3>Hungaroring</h3></div>
           </div>
         </article>
         <article class="project-card project-offset reveal">
-          <a href="#foglalas" class="project-image project-image-two" aria-label="Slovakia Ring pályanap részletei">
-            <span class="project-index">02 / SZLOVÁKIA</span>
-            <span class="project-arrow" aria-hidden="true">↗</span>
-            <span class="project-location">ORECHOVÁ POTÔŇ · HOSSZÚ EGYENESEK</span>
+          <a href="#foglalas" class="project-image project-image-two" data-track="Slovakia Ring" aria-label="Slovakia Ring pályanap részletei">
+            <img class="track-map" src="track-maps/slovakia-ring.svg" alt="A Slovakia Ring pályarajza" loading="lazy">
           </a>
           <div class="project-meta">
-            <div><h3>Slovakia Ring</h3><p>Tágas pálya, sok lehetőség</p></div>
-            <span>SK</span>
+            <div><p class="project-country">Szlovákia</p><h3>Slovakia Ring</h3></div>
           </div>
         </article>
         <article class="project-card reveal">
-          <a href="#foglalas" class="project-image project-image-three" aria-label="Red Bull Ring pályanap részletei">
-            <span class="project-index">03 / AUSZTRIA</span>
-            <span class="project-arrow" aria-hidden="true">↗</span>
-            <span class="project-location">SPIELBERG · HEGYI KANYAROK</span>
+          <a href="#foglalas" class="project-image project-image-three" data-track="Red Bull Ring" aria-label="Red Bull Ring pályanap részletei">
+            <img class="track-map" src="track-maps/red-bull-ring.svg" alt="A Red Bull Ring pályarajza" loading="lazy">
           </a>
           <div class="project-meta">
-            <div><h3>Red Bull Ring</h3><p>Vezetés az Alpok különleges hátterében</p></div>
-            <span>AT</span>
+            <div><p class="project-country">Ausztria</p><h3>Red Bull Ring</h3></div>
+          </div>
+        </article>
+        <article class="project-card reveal">
+          <a href="#foglalas" class="project-image project-image-four" data-track="Spa-Francorchamps" aria-label="Spa-Francorchamps pályanap részletei">
+            <img class="track-map" src="track-maps/spa-francorchamps.svg" alt="A Spa-Francorchamps pályarajza" loading="lazy">
+          </a>
+          <div class="project-meta">
+            <div><p class="project-country">Belgium</p><h3>Spa-Francorchamps</h3></div>
+          </div>
+        </article>
+        <article class="project-card reveal">
+          <a href="#foglalas" class="project-image project-image-five" data-track="Nürburgring" aria-label="Nürburgring pályanap részletei">
+            <img class="track-map" src="track-maps/nurburgring.svg" alt="A Nürburgring pályarajza" loading="lazy">
+          </a>
+          <div class="project-meta">
+            <div><p class="project-country">Németország</p><h3>Nürburgring</h3></div>
           </div>
         </article>
       </div>
       <a class="text-link all-projects reveal" href="#foglalas">Pálya és időpont kiválasztása <span aria-hidden="true">↗</span></a>
     </section>
 
+    <section class="upcoming section-wrap" id="palyanapok">
+      <div class="section-label reveal">
+        <span>03 / KÖVETKEZŐ PÁLYANAPOK</span>
+        <span class="label-line"></span>
+        <span>2027-ES TERVEZETT IDŐSZAKOK</span>
+      </div>
+      <div class="upcoming-heading reveal">
+        <h2>Válaszd ki<br><em>a következő kört.</em></h2>
+        <p>Jelezd, melyik pályanap érdekel, és egyeztetjük veled a részleteket.</p>
+      </div>
+      <div class="event-grid">
+        <article class="event-card reveal">
+          <div class="event-card-top">
+            <span class="event-tag">TERVEZETT PÁLYANAP</span>
+            <span class="event-round">01 / 03</span>
+          </div>
+          <p class="event-date">2027 tavasz <span>· pontos dátum egyeztetés alatt</span></p>
+          <h3>Hungaroring</h3>
+          <p class="event-location">Mogyoród · Magyarország</p>
+          <a class="event-button" href="#foglalas" data-track="Hungaroring">Érdekel <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="event-card event-card-featured reveal">
+          <div class="event-card-top">
+            <span class="event-tag">TERVEZETT PÁLYANAP</span>
+            <span class="event-round">02 / 03</span>
+          </div>
+          <p class="event-date">2027 nyár eleje <span>· pontos dátum egyeztetés alatt</span></p>
+          <h3>Slovakia Ring</h3>
+          <p class="event-location">Orechová Potôň · Szlovákia</p>
+          <a class="event-button" href="#foglalas" data-track="Slovakia Ring">Érdekel <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="event-card reveal">
+          <div class="event-card-top">
+            <span class="event-tag">TERVEZETT PÁLYANAP</span>
+            <span class="event-round">03 / 03</span>
+          </div>
+          <p class="event-date">2027 nyár <span>· pontos dátum egyeztetés alatt</span></p>
+          <h3>Red Bull Ring</h3>
+          <p class="event-location">Spielberg · Ausztria</p>
+          <a class="event-button" href="#foglalas" data-track="Red Bull Ring">Érdekel <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+      <p class="upcoming-note">Az időszakok tervezettek, a pontos dátumok és a férőhelyek egyeztetés alatt állnak. Az érdeklődés nem jelent foglalást.</p>
+    </section>
+
     <section class="manifesto" id="csomagok">
       <div class="manifesto-image" role="img" aria-label="Sportautó a pályanap előtt"></div>
       <div class="manifesto-content reveal">
-        <p class="eyebrow">03 / TE DÖNTESZ A TEMPÓRÓL</p>
+        <p class="eyebrow">04 / TE DÖNTESZ A TEMPÓRÓL</p>
         <h2>Saját autó.<br><em>Saját élmény.</em></h2>
         <p class="body-copy">Érkezz a saját autóddal, vagy érdeklődj vezetési élménycsomagjainkról. Kérhetsz első pályanapos eligazítást, több pályakört vagy személyre szabott időpontot is.</p>
         <a class="text-link" href="#foglalas">Válassz élménycsomagot <span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
+    <section class="faq section-wrap" id="gyik">
+      <div class="section-label reveal">
+        <span>05 / GYAKORI KÉRDÉSEK</span>
+        <span class="label-line"></span>
+        <span>INDULÁS ELŐTT</span>
+      </div>
+      <div class="faq-heading reveal">
+        <h2>Jó kérdés.<br><em>Jó, hogy jöttél.</em></h2>
+        <p>Első pályanap előtt természetes, ha van pár kérdésed.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Kell versenyzői tapasztalat a pályanaphoz?</summary>
+          <p>Nem. A pályanap kezdőknek is szól. A saját tempódban vezethetsz, az adott esemény indulás előtti tájékoztatását pedig minden résztvevőnek érdemes követnie.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Milyen autóval vehetek részt?</summary>
+          <p>Az eseménytől függően saját autóval vagy vezetési élménycsomaggal is érdeklődhetsz. A járműre és a felszerelésre vonatkozó pontos feltételeket az adott pályanap előtt egyeztetjük.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Szükségem van jogosítványra?</summary>
+          <p>A jogosítványra és a vezetői feltételekre vonatkozó szabályok pályánként és csomagonként eltérhetnek. Jelentkezés előtt egyeztetünk veled az adott esemény feltételeiről.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Mi történik, ha esik az eső vagy változik az időpont?</summary>
+          <p>Az időjárási és lemondási feltételek eseményenként eltérhetnek. A kiválasztott pályanap konkrét szabályairól és az esetleges módosításokról előre tájékoztatunk.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Az érdeklődéssel lefoglalom a helyemet?</summary>
+          <p>Nem. Az űrlap csak érdeklődésre szolgál; a dátumot, az elérhetőséget és a részvétel feltételeit külön egyeztetjük és visszaigazoljuk.</p>
+        </details>
+      </div>
+    </section>
+
     <section class="contact section-wrap" id="foglalas">
       <div class="section-label reveal">
-        <span>04 / PÁLYANAP ÉS ELÉRHETŐSÉG</span>
+        <span>06 / PÁLYANAP ÉS ELÉRHETŐSÉG</span>
         <span class="label-line"></span>
         <span>KÉRJ IDŐPONTOT</span>
       </div>
@@ -206,7 +294,120 @@
     <a class="wordmark footer-mark" href="#kezdolap">APEX<span> / TRACK DAYS</span></a>
     <p>A pálya a tiéd.</p>
     <span>© <span id="year"></span> APEX Track Days</span>
-    <a class="back-top" href="#kezdolap">Vissza a rajthoz ↑</a>
   </footer>
+  <a class="back-top" href="#kezdolap" aria-label="Vissza az oldal tetejére">↑</a>
+  <dialog class="track-dialog" aria-labelledby="track-dialog-title">
+    <div class="track-dialog-header">
+      <p class="eyebrow" id="track-dialog-title">Pályanap részletei</p>
+      <button class="track-dialog-close" type="button" aria-label="Ablak bezárása">×</button>
+    </div>
+    <div class="track-dialog-content"></div>
+  </dialog>
+  <dialog class="account-dialog" id="account-dialog" aria-labelledby="account-dialog-title">
+    <div class="account-dialog-header">
+      <div>
+        <p class="eyebrow">APEX / TRACK DAYS</p>
+        <h2 id="account-dialog-title">Fiók <em>neked.</em></h2>
+      </div>
+      <button class="track-dialog-close account-dialog-close" type="button" aria-label="Ablak bezárása">×</button>
+    </div>
+    <div class="account-tabs" aria-label="Fiók műveletek">
+      <button class="account-tab is-active" type="button" aria-pressed="true" data-account-mode="login">Bejelentkezés</button>
+      <button class="account-tab" type="button" aria-pressed="false" data-account-mode="register">Regisztráció</button>
+    </div>
+    <form class="account-form" id="account-form">
+      <label class="account-field account-name-field" for="account-name" hidden>Teljes név</label>
+      <input class="account-field account-name-field" id="account-name" name="name" type="text" autocomplete="name" placeholder="Teljes név" hidden>
+      <label for="account-email">E-mail-cím</label>
+      <input id="account-email" name="email" type="email" autocomplete="email" placeholder="nev@email.hu" required>
+      <label for="account-password">Jelszó</label>
+      <input id="account-password" name="password" type="password" autocomplete="current-password" placeholder="Legalább 8 karakter" minlength="8" required>
+      <label class="account-field account-confirm-label" for="account-password-confirm" hidden>Jelszó megerősítése</label>
+      <input class="account-field account-confirm-field" id="account-password-confirm" name="password-confirm" type="password" autocomplete="new-password" placeholder="Jelszó újra" minlength="8" hidden>
+      <button class="submit-button" type="submit"><span class="account-submit-label">Bejelentkezés</span><span aria-hidden="true">↗</span></button>
+      <p class="account-status" role="status" aria-live="polite"></p>
+      <p class="account-demo-note">Ez egy bemutató felület. A bejelentkezés és a regisztráció jelenleg nem ment adatot.</p>
+    </form>
+  </dialog>
+  <template data-track-event="Hungaroring">
+    <article class="event-card">
+      <div class="event-card-top">
+        <span class="event-tag">TAVASZI PÁLYANAP</span>
+        <span class="event-round">01 / 03</span>
+      </div>
+      <p class="event-date">2027 tavasz <span>· időpont egyeztetés alatt</span></p>
+      <h3>Hungaroring</h3>
+      <p class="event-location">Mogyoród · Magyarország</p>
+      <div class="event-price">
+        <span>Saját autóval, tájékoztató mintaár</span>
+        <strong>49 900 Ft-tól</strong>
+      </div>
+      <a class="event-button" href="#foglalas" data-track="Hungaroring">Érdekel <span aria-hidden="true">↗</span></a>
+    </article>
+  </template>
+  <template data-track-event="Slovakia Ring">
+    <article class="event-card">
+      <div class="event-card-top">
+        <span class="event-tag">NYÁR ELEJI PÁLYANAP</span>
+        <span class="event-round">02 / 03</span>
+      </div>
+      <p class="event-date">2027 nyár eleje <span>· időpont egyeztetés alatt</span></p>
+      <h3>Slovakia Ring</h3>
+      <p class="event-location">Orechová Potôň · Szlovákia</p>
+      <div class="event-price">
+        <span>Saját autóval, tájékoztató mintaár</span>
+        <strong>59 900 Ft-tól</strong>
+      </div>
+      <a class="event-button" href="#foglalas" data-track="Slovakia Ring">Érdekel <span aria-hidden="true">↗</span></a>
+    </article>
+  </template>
+  <template data-track-event="Red Bull Ring">
+    <article class="event-card">
+      <div class="event-card-top">
+        <span class="event-tag">HEGYI VEZETÉSI ÉLMÉNY</span>
+        <span class="event-round">03 / 03</span>
+      </div>
+      <p class="event-date">2027 nyár <span>· időpont egyeztetés alatt</span></p>
+      <h3>Red Bull Ring</h3>
+      <p class="event-location">Spielberg · Ausztria</p>
+      <div class="event-price">
+        <span>Saját autóval, tájékoztató mintaár</span>
+        <strong>74 900 Ft-tól</strong>
+      </div>
+      <a class="event-button" href="#foglalas" data-track="Red Bull Ring">Érdekel <span aria-hidden="true">↗</span></a>
+    </article>
+  </template>
+  <template data-track-event="Spa-Francorchamps">
+    <article class="event-card">
+      <div class="event-card-top">
+        <span class="event-tag">IKONIKUS PÁLYANAP</span>
+        <span class="event-round">04 / 05</span>
+      </div>
+      <p class="event-date">2027 nyár <span>· időpont egyeztetés alatt</span></p>
+      <h3>Spa-Francorchamps</h3>
+      <p class="event-location">Stavelot · Belgium</p>
+      <div class="event-price">
+        <span>Saját autóval, tájékoztató mintaár</span>
+        <strong>89 900 Ft-tól</strong>
+      </div>
+      <a class="event-button" href="#foglalas" data-track="Spa-Francorchamps">Érdekel <span aria-hidden="true">↗</span></a>
+    </article>
+  </template>
+  <template data-track-event="Nürburgring">
+    <article class="event-card">
+      <div class="event-card-top">
+        <span class="event-tag">IKONIKUS PÁLYANAP</span>
+        <span class="event-round">05 / 05</span>
+      </div>
+      <p class="event-date">2027 nyár <span>· időpont egyeztetés alatt</span></p>
+      <h3>Nürburgring</h3>
+      <p class="event-location">Nürburg · Németország</p>
+      <div class="event-price">
+        <span>Saját autóval, tájékoztató mintaár</span>
+        <strong>99 900 Ft-tól</strong>
+      </div>
+      <a class="event-button" href="#foglalas" data-track="Nürburgring">Érdekel <span aria-hidden="true">↗</span></a>
+    </article>
+  </template>
 </body>
 </html>
