@@ -241,30 +241,8 @@
         </div>
         <form class="contact-form reveal">
           <label for="track">Melyik pályán vezetnél?</label>
-          <select id="track" name="track" required>
-            <option value="" selected disabled>Válassz egy pályát</option>
-            <optgroup label="Magyarország">
-              <option value="Hungaroring">Hungaroring · Mogyoród</option>
-              <option value="Pannonia-Ring">Pannonia-Ring · Ostffyasszonyfa</option>
-              <option value="Balaton Park Circuit">Balaton Park Circuit · Balatonfőkajár</option>
-              <option value="Kakucs Ring">Kakucs Ring · Kakucs</option>
-              <option value="Rabócsiring">Rabócsiring · Máriapócs</option>
-            </optgroup>
-            <optgroup label="Szomszédos országok">
-              <option value="Slovakia Ring">Slovakia Ring · Orechová Potôň</option>
-              <option value="Automotodrom Brno">Automotodrom Brno · Csehország</option>
-              <option value="Autodrom Most">Autodrom Most · Csehország</option>
-              <option value="Red Bull Ring">Red Bull Ring · Spielberg, Ausztria</option>
-              <option value="Salzburgring">Salzburgring · Ausztria</option>
-              <option value="Grobnik">Automotodrom Grobnik · Horvátország</option>
-            </optgroup>
-            <optgroup label="További európai pályák">
-              <option value="Lausitzring">Lausitzring · Németország</option>
-              <option value="Hockenheimring">Hockenheimring · Németország</option>
-              <option value="Nürburgring">Nürburgring · Németország</option>
-              <option value="Spa-Francorchamps">Spa-Francorchamps · Belgium</option>
-              <option value="Misano">Misano World Circuit · Olaszország</option>
-            </optgroup>
+          <select id="track" name="track" required disabled>
+            <option value="" selected disabled>Pályák betöltése…</option>
           </select>
 
           <label for="availability">Mikor lenne jó?</label>
@@ -323,12 +301,12 @@
       <label for="account-email">E-mail-cím</label>
       <input id="account-email" name="email" type="email" autocomplete="email" placeholder="nev@email.hu" required>
       <label for="account-password">Jelszó</label>
-      <input id="account-password" name="password" type="password" autocomplete="current-password" placeholder="Legalább 8 karakter" minlength="8" required>
+      <input id="account-password" name="password" type="password" autocomplete="current-password" placeholder="8–72 bájt" minlength="8" maxlength="72" required>
       <label class="account-field account-confirm-label" for="account-password-confirm" hidden>Jelszó megerősítése</label>
-      <input class="account-field account-confirm-field" id="account-password-confirm" name="password-confirm" type="password" autocomplete="new-password" placeholder="Jelszó újra" minlength="8" hidden>
+      <input class="account-field account-confirm-field" id="account-password-confirm" name="password-confirm" type="password" autocomplete="new-password" placeholder="Jelszó újra" minlength="8" maxlength="72" hidden>
       <button class="submit-button" type="submit"><span class="account-submit-label">Bejelentkezés</span><span aria-hidden="true">↗</span></button>
       <p class="account-status" role="status" aria-live="polite"></p>
-      <p class="account-demo-note">Ez egy bemutató felület. A bejelentkezés és a regisztráció jelenleg nem ment adatot.</p>
+      <p class="account-demo-note">A neved és e-mail-címed titkosítva, a jelszavad biztonságos hash formájában tároljuk.</p>
     </form>
   </dialog>
   <template data-track-event="Hungaroring">

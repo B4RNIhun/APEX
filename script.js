@@ -18,6 +18,7 @@ const accountPassword = document.querySelector("#account-password");
 const accountPasswordConfirm = document.querySelector("#account-password-confirm");
 const accountStatus = document.querySelector(".account-status");
 const accountSubmitLabel = document.querySelector(".account-submit-label");
+let accountMode = "login";
 const hero = document.querySelector(".hero");
 
 const availabilityOptions = [
@@ -74,6 +75,7 @@ navMenu.querySelectorAll("a").forEach((link) => {
 const setAccountMode = (mode) => {
   const isRegister = mode === "register";
 
+  accountMode = mode;
   accountForm.reset();
   accountPasswordConfirm.setCustomValidity("");
   accountStatus.textContent = "";
@@ -124,9 +126,51 @@ accountPassword.addEventListener("input", () => {
   }
 });
 
-accountForm.addEventListener("submit", (event) => {
+accountForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  accountStatus.textContent = "Ez egy bemutató felület: a fiókadatokat nem mentettük el, és bejelentkezés sem történt.";
+
+  const formData = new FormData(accountForm);
+  const request = {
+    action: accountMode,
+    email: String(formData.get("email") || "").trim(),
+    password: String(formData.get("password") || "")
+  };
+
+  if (accountMode === "register") {
+    request.name = String(formData.get("name") || "").trim();
+  }
+
+  const submitButton = accountForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  accountStatus.textContent = "Fiókadatok ellenőrzése…";
+
+  try {
+    const response = await fetch("account.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(request)
+    });
+    const text = await response.text();
+    let result;
+
+    try {
+      result = JSON.parse(text);
+    } catch {
+      throw new Error("A szerver nem adott érvényes választ.");
+    }
+
+    if (!response.ok) {
+      throw new Error(result.error || "A fiókművelet nem sikerült.");
+    }
+
+    accountStatus.textContent = result.message || "A fiókművelet sikerült.";
+    accountPassword.value = "";
+    accountPasswordConfirm.value = "";
+  } catch (error) {
+    accountStatus.textContent = error.message || "A fiókművelet nem sikerült.";
+  } finally {
+    submitButton.disabled = false;
+  }
 });
 
 document.querySelectorAll(".event-button").forEach((button) => {
@@ -240,11 +284,107 @@ const updateAvailabilityOptions = () => {
 
 trackSelect.addEventListener("change", updateAvailabilityOptions);
 
+const loadTrackOptions = async () => {
+  const requestUrl = new URL("track-options.php", document.baseURI);
+  const requestedTrack = new URLSearchParams(window.location.search).get("palya");
+
+  if (requestedTrack !== null) {
+    requestUrl.searchParams.set("palya", requestedTrack);
+  }
+
+  try {
+    const response = await fetch(requestUrl);
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || "A pályák betöltése nem sikerült.");
+    }
+
+    if (!result || typeof result.options !== "object" || result.options === null) {
+      throw new Error("A PHP-szerver érvénytelen pályalistát küldött.");
+    }
+
+    trackSelect.replaceChildren();
+
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Válassz egy pályát";
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    trackSelect.append(placeholder);
+
+    Object.entries(result.options).forEach(([region, tracks]) => {
+      const group = document.createElement("optgroup");
+      group.label = region;
+
+      Object.entries(tracks).forEach(([track, label]) => {
+        const option = document.createElement("option");
+        option.value = track;
+        option.textContent = label;
+        option.selected = track === result.selectedTrack;
+        group.append(option);
+      });
+
+      trackSelect.append(group);
+    });
+
+    trackSelect.disabled = false;
+
+    if (result.selectedTrack) {
+      trackSelect.dispatchEvent(new Event("change"));
+    }
+  } catch (error) {
+    trackSelect.disabled = true;
+    formStatus.textContent = error.message || "A pályák betöltése nem sikerült.";
+  }
+};
+
+loadTrackOptions();
+
 contactForm.addEventListener("input", () => {
   formStatus.textContent = "";
 });
 
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  formStatus.textContent = "Ez egy bemutató űrlap, az érdeklődésedet nem rögzítettük. Valódi időpont-egyeztetéshez írj a hello@apextrackdays.hu címre.";
+
+  const formData = new FormData(contactForm);
+  const inquiry = {
+    track: String(formData.get("track") || ""),
+    availability: String(formData.get("availability") || ""),
+    package: String(formData.get("package") || ""),
+    name: String(formData.get("name") || "").trim(),
+    email: String(formData.get("email") || "").trim(),
+    submittedAt: new Date().toISOString()
+  };
+
+  fetch("save-inquiry.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(inquiry)
+  })
+    .then(async (response) => {
+      const text = await response.text();
+      let result = {};
+
+      if (text) {
+        try {
+          result = JSON.parse(text);
+        } catch {
+          throw new Error("A PHP-szerver nem adott érvényes választ. Használd a 127.0.0.1:8080 címet.");
+        }
+      } else {
+        throw new Error("A PHP-szerver üres választ adott. Indítsd az oldalt PHP-szerveren.");
+      }
+
+      if (!response.ok) {
+        throw new Error(result.error || "Az érdeklődést nem sikerült menteni.");
+      }
+      formStatus.textContent = "Az érdeklődés sikeresen mentve.";
+      contactForm.reset();
+      updateAvailabilityOptions();
+    })
+    .catch((error) => {
+      formStatus.textContent = error.message;
+    });
 });
